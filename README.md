@@ -65,33 +65,20 @@ python3 -m http.server 4321
 
 브라우저에서 `http://localhost:4321` 을 엽니다.
 
-## GitHub Pages 배포
+## 배포
 
-1. GitHub에서 새 저장소를 만듭니다 (예: `funnysquare-site`, **Public**).
-2. 이 폴더를 push 합니다.
+- **저장소** — [Edwin-space/funnysquare-site](https://github.com/Edwin-space/funnysquare-site) (`main` / root)
+- **라이브** — <https://funny-square.com> (GitHub Pages + 커스텀 도메인, 저장소 루트의 `CNAME`으로 연결)
 
-   ```bash
-   git remote add origin https://github.com/<계정명>/funnysquare-site.git
-   git push -u origin main
-   ```
+`main`에 push하면 GitHub Pages가 1~2분 안에 자동 반영합니다.
 
-3. 저장소 **Settings → Pages**에서 **Source**를 `Deploy from a branch`, **Branch**를 `main` / `(root)`로 지정합니다.
-4. 1~2분 뒤 `https://<계정명>.github.io/funnysquare-site/` 에서 열립니다.
+```bash
+git push origin main
+```
 
-### 대표 도메인(funny-square.com) 연결
+> `CNAME` 파일을 지우면 커스텀 도메인 연결이 끊깁니다. force push나 파일 정리 시 주의하세요.
 
-1. 저장소 루트에 도메인 한 줄만 담긴 `CNAME` 파일을 추가합니다.
-
-   ```bash
-   echo "funny-square.com" > CNAME
-   ```
-
-2. 도메인 DNS에 아래 레코드를 추가합니다.
-   - `A` → `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
-   - `www` `CNAME` → `<계정명>.github.io`
-3. **Settings → Pages → Custom domain**에 `funny-square.com`을 입력하고, DNS 검증이 끝나면 **Enforce HTTPS**를 켭니다.
-
-## 배포 전 확인할 것
+## 남은 작업
 
 - [ ] `index.html`의 문의 메일 주소 — 현재 `contact@funny-square.com` 자리표시자입니다. 실제 주소로 교체하세요. (`TODO` 주석으로 표시해 두었습니다)
 - [ ] 푸터의 법인 정보 — 필요하다면 사업자등록번호 · 주소 · 대표자명을 추가하세요.
