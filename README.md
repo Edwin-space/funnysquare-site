@@ -24,8 +24,29 @@
 2. **생태계** — 에코 · 글리움 · 멍냥레코드와 이를 떠받치는 Core Infra
 3. **에코 (Echo)** — Return, not reaction. 개인 GPS 운동 트래커
 4. **글리움 (Gleaum)** — 개인 원장과 공유 원장이 분리된 관계형 일상 네트워크
-5. **멍냥레코드 (MungNyang Records)** — 스마트 OCR 기반 반려동물 평생 의료기록실
+5. **멍냥레코드 (MungNyang Records)** — 개발 중. 티저 수준으로만 노출합니다
 6. **기술 기반 & 로드맵** — Phase 1 → Phase 4
+
+## 공식 채널
+
+| 서비스 | 웹사이트 | App Store | Google Play |
+|---|---|---|---|
+| 에코 (Echo) | [echo-space](https://edwin-space.github.io/echo-space/) | [id6795827065](https://apps.apple.com/kr/app/id6795827065) | — |
+| 글리움 (Gleaum) | [gleaum.com](https://www.gleaum.com) | [id6795727692](https://apps.apple.com/kr/app/id6795727692) | [com.gleaum.app](https://play.google.com/store/apps/details?id=com.gleaum.app) |
+| 멍냥레코드 | 개발 중 | — | — |
+
+각 서비스 섹션과 푸터, `Organization` JSON-LD의 `sameAs` · `downloadUrl`에 모두 반영되어 있습니다.
+
+## 멍냥레코드 공개 범위
+
+개발 중인 서비스라 **의도적으로 축소해 노출**합니다. 아래 내용은 사이트에 싣지 않습니다.
+
+- 스마트 스캐닝 4단계 등 구현 파이프라인
+- 기능 상세 (다중 프로필 · 케어 알림 · 지식백과 · 건강 증명 등)
+- OCR 등 핵심 기술 방식에 대한 서비스 단위 서술
+
+대신 문제의식 · 시장 규모 · "출시와 함께 공개" 안내와 문의 CTA만 남겼습니다.
+출시 시점에 이 섹션을 확장하면 됩니다.
 
 ## 기술 메모
 
@@ -74,7 +95,7 @@ python3 -m http.server 4321
 
 - [ ] `index.html`의 문의 메일 주소 — 현재 `contact@funny-square.com` 자리표시자입니다. 실제 주소로 교체하세요. (`TODO` 주석으로 표시해 두었습니다)
 - [ ] 푸터의 법인 정보 — 필요하다면 사업자등록번호 · 주소 · 대표자명을 추가하세요.
-- [ ] 앱 스토어 링크가 준비되면 각 서비스 섹션에 다운로드 버튼을 추가하세요.
+- [ ] 멍냥레코드 출시 시 해당 섹션을 확장하고, 스토어 링크를 추가하세요.
 
 ---
 

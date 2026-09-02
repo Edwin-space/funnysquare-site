@@ -36,9 +36,28 @@
   "slogan": "The Ecosystem of Daily Life",
   "description": "파편화된 일상을 의미 있는 데이터로 모으고, 그 데이터를 다시 새로운 즐거움으로 되돌려주는 기술 기업.",
   "makesOffer": [
-    { "@type": "Offer", "itemOffered": { "@type": "SoftwareApplication", "name": "Echo", "applicationCategory": "HealthApplication", "operatingSystem": "iOS, watchOS" } },
-    { "@type": "Offer", "itemOffered": { "@type": "SoftwareApplication", "name": "Gleaum", "applicationCategory": "LifestyleApplication" } },
-    { "@type": "Offer", "itemOffered": { "@type": "SoftwareApplication", "name": "MungNyang Records", "applicationCategory": "HealthApplication" } }
+    { "@type": "Offer", "itemOffered": {
+      "@type": "SoftwareApplication",
+      "name": "Echo",
+      "alternateName": "\uc5d0\ucf54",
+      "applicationCategory": "HealthApplication",
+      "operatingSystem": "iOS, watchOS",
+      "url": "https://edwin-space.github.io/echo-space/",
+      "downloadUrl": "https://apps.apple.com/kr/app/id6795827065"
+    } },
+    { "@type": "Offer", "itemOffered": {
+      "@type": "SoftwareApplication",
+      "name": "Gleaum",
+      "alternateName": "\uae00\ub9ac\uc6c0",
+      "applicationCategory": "LifestyleApplication",
+      "operatingSystem": "iOS, Android",
+      "url": "https://www.gleaum.com",
+      "downloadUrl": "https://apps.apple.com/kr/app/id6795727692"
+    } }
+  ],
+  "sameAs": [
+    "https://www.gleaum.com",
+    "https://edwin-space.github.io/echo-space/"
   ]
 }
 </script>
@@ -561,6 +580,34 @@ h3,.h3{
 .featrow h4{font-size:1rem;font-weight:700;margin:0 0 6px;letter-spacing:-.022em}
 .featrow p{margin:0;font-size:.885rem;line-height:1.68;color:var(--fg-2);font-weight:380}
 
+/* external service links */
+.links{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.linkbtn{
+  display:inline-flex;align-items:center;gap:9px;
+  padding:11px 18px;border-radius:999px;
+  border:1px solid var(--line);background:var(--bg-2);
+  font-size:.88rem;font-weight:620;letter-spacing:-.014em;
+  transition:border-color .25s, background .25s, transform .25s cubic-bezier(.2,.8,.2,1);
+}
+.linkbtn:hover{border-color:color-mix(in srgb,var(--ac) 55%,var(--line));background:var(--bg-3);transform:translateY(-2px)}
+.linkbtn > svg{width:15px;height:15px;color:var(--ac);flex:none}
+.linkbtn .ext{width:11px;height:11px;color:var(--fg-3);transition:transform .22s, color .22s}
+.linkbtn:hover .ext{transform:translate(2px,-2px);color:var(--fg)}
+
+/* in-development notice */
+.notice{
+  border:1px dashed color-mix(in srgb,var(--ac) 45%,var(--line));
+  border-radius:var(--r-lg);background:var(--bg-2);
+  padding:clamp(26px,3.4vw,42px);
+}
+.notice .kicker{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--ac);margin-bottom:14px;display:flex;align-items:center;gap:9px;
+}
+.notice h3{margin-bottom:12px}
+.notice p{color:var(--fg-2);font-size:.94rem;line-height:1.72;font-weight:380;max-width:60ch}
+.notice .btn{margin-top:26px}
+
 /* sport / phase chips */
 .chips{display:flex;flex-wrap:wrap;gap:10px}
 .chip{
@@ -905,7 +952,7 @@ h3,.h3{
         <dl class="spec">
           <div><dt>대상</dt><dd>가족 — 반려동물</dd></div>
           <div><dt>데이터</dt><dd>진료 · 건강 · 의료 정보</dd></div>
-          <div><dt>가치</dt><dd>스마트 OCR 기반 영구 의료기록 관리 및 맞춤형 홈 케어</dd></div>
+          <div><dt>가치</dt><dd>흩어진 반려가족의 건강 기록을 평생 남는 형태로 관리</dd></div>
         </dl>
       </article>
     </div>
@@ -943,6 +990,18 @@ h3,.h3{
           당신의 움직임은 타인의 피드로 사라지지 않습니다.
           소셜 피드나 공개 순위 없이, 러닝 · 자전거 · 걷기의 흐름에만 몰입할 수 있는 개인 GPS 운동 트래커입니다.
         </p>
+        <div class="links rv">
+          <a class="linkbtn" href="https://edwin-space.github.io/echo-space/" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>
+            웹사이트
+            <svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+          </a>
+          <a class="linkbtn" href="https://apps.apple.com/kr/app/id6795827065" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6.5" y="2.5" width="11" height="19" rx="3"/><path d="M12 7.6v6.2M9.4 11.2 12 13.8l2.6-2.6"/></svg>
+            App Store
+            <svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+          </a>
+        </div>
       </div>
     </div>
 
@@ -997,6 +1056,23 @@ h3,.h3{
           글리움은 다릅니다. 내 곁의 가장 소중한 사람에게 집중합니다.
           각자의 할 일을 명확히 기록하고, 서로의 빈자리를 따뜻하게 조명하는 공간입니다.
         </p>
+        <div class="links rv">
+          <a class="linkbtn" href="https://www.gleaum.com" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>
+            gleaum.com
+            <svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+          </a>
+          <a class="linkbtn" href="https://apps.apple.com/kr/app/id6795727692" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6.5" y="2.5" width="11" height="19" rx="3"/><path d="M12 7.6v6.2M9.4 11.2 12 13.8l2.6-2.6"/></svg>
+            App Store
+            <svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+          </a>
+          <a class="linkbtn" href="https://play.google.com/store/apps/details?id=com.gleaum.app" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.6 3.1v17.8a1 1 0 0 0 1.5.86l13.1-8.9a1 1 0 0 0 0-1.72L6.1 2.24a1 1 0 0 0-1.5.86Z"/><path d="M5 2.7 15.2 12.9M5 21.3 15.2 11.1"/></svg>
+            Google Play
+            <svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+          </a>
+        </div>
       </div>
     </div>
 
@@ -1061,7 +1137,7 @@ h3,.h3{
         <p class="prod__claim rv">종이에 갇힌 병력을,<br>평생 지워지지 않는 기록으로.</p>
         <p class="lede rv">
           1,500만 반려인 시대, 그러나 반려동물의 의료기록은 여전히 종이 위에 머물러 있습니다.
-          멍냥레코드는 스마트 OCR로 진료기록과 영수증을 스캔해, 분실 걱정 없는 평생 의료기록실을 만듭니다.
+          멍냥레코드는 흩어지고 사라지는 반려가족의 건강 기록을, 평생 남는 형태로 다시 세우는 서비스입니다.
         </p>
       </div>
     </div>
@@ -1088,32 +1164,16 @@ h3,.h3{
       <article class="prob"><h4>응급상황 취약</h4><p>정작 급할 때 히스토리를 즉시 파악할 수단이 없습니다.</p></article>
     </div>
 
-    <h3 class="rv" style="margin-bottom:18px">스마트 스캐닝 4단계</h3>
-    <div class="steps rv" style="margin-bottom:clamp(34px,4.5vw,54px)">
-      <article class="step"><h4>스마트폰 촬영</h4><p>어려운 전문 용어로 작성된 종이 진료기록부나 영수증을 촬영합니다.</p></article>
-      <article class="step"><h4>스마트 OCR 변환</h4><p>문자 인식과 수기 패턴을 접목해 완벽한 디지털 데이터로 스캐닝합니다.</p></article>
-      <article class="step"><h4>클라우드 영구 보관</h4><p>분실 위험 0%, 안전한 평생 의료기록 데이터베이스를 구축합니다.</p></article>
-      <article class="step"><h4>수의사 사전 공유</h4><p>새 병원 방문 전 과거 기록을 공유해 기초 검진비를 절약합니다.</p></article>
+    <div class="notice rv">
+      <p class="kicker"><span class="dot dot--idle" aria-hidden="true"></span>In development</p>
+      <h3>자세한 내용은 출시와 함께 공개합니다</h3>
+      <p>
+        멍냥레코드는 현재 Phase 2 개발 단계에 있습니다.
+        구체적인 기능 구성과 기술 방식은 출시 시점에 안내드릴 예정입니다.
+        제휴 · 투자 · 사전 협업 논의는 언제든 문의해 주세요.
+      </p>
+      <a class="btn btn--ghost" href="#contact">문의하기 <span class="arr" aria-hidden="true">→</span></a>
     </div>
-
-    <ul class="featrow rv" style="--cols:2">
-      <li>
-        <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="9" r="3.1"/><path d="M2.8 19.5a5.2 5.2 0 0 1 10.4 0"/><circle cx="17" cy="7.5" r="2.3"/><path d="M14.6 15.6a4.4 4.4 0 0 1 6.6 3.9"/></svg></span>
-        <div><h4>다중 프로필</h4><p>여러 반려동물을 각각 분리 등록하고 손쉽게 맞춤형 케어를 지원합니다.</p></div>
-      </li>
-      <li>
-        <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M18 9a6 6 0 1 0-12 0c0 5-2 6.5-2 6.5h16S18 14 18 9Z"/><path d="M10.3 19.2a2 2 0 0 0 3.4 0"/></svg></span>
-        <div><h4>케어 알림 시스템</h4><p>접종 · 진료 일정 · 약물 복용 등 필수 알림을 데일리 헬스케어 다이어리로 관리합니다.</p></div>
-      </li>
-      <li>
-        <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H19v18H6.5A2.5 2.5 0 0 1 4 18.5Z"/><path d="M8 8h7M8 12h7"/></svg></span>
-        <div><h4>빅데이터 지식백과</h4><p>질병 증상부터 맞춤형 홈케어 방법까지, 수의사와의 원활한 소통을 지원합니다.</p></div>
-      </li>
-      <li>
-        <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4.5 6.2v5.3c0 4.6 3.1 8.4 7.5 9.5 4.4-1.1 7.5-4.9 7.5-9.5V6.2Z"/><path d="M9.2 12.1l2 2 3.6-3.9"/></svg></span>
-        <div><h4>건강 증명</h4><p>펫보험 청구, 입양, 교배 시 확실한 건강 상태 증명서 역할을 수행합니다.</p></div>
-      </li>
-    </ul>
   </div>
 </section>
 
@@ -1138,7 +1198,7 @@ h3,.h3{
       <article class="card" style="--ac:var(--gleaum-a)">
         <span class="value__no mono" style="display:block;margin-bottom:14px">02</span>
         <h3 style="margin-bottom:10px">빅데이터 &amp; OCR 엔진</h3>
-        <p class="small">텍스트와 이미지 데이터를 구조화된 DB로 자동 변환하는 지능형 스캐닝 파이프라인입니다.</p>
+        <p class="small">비정형 데이터를 서비스가 곧바로 쓸 수 있는 구조화된 형태로 바꾸는 자체 데이터 처리 역량입니다.</p>
       </article>
       <article class="card" style="--ac:var(--mung)">
         <span class="value__no mono" style="display:block;margin-bottom:14px">03</span>
@@ -1171,12 +1231,12 @@ h3,.h3{
       <article class="phase" style="--pc:var(--gleaum-a)">
         <p class="p">Phase 2 · Next step</p>
         <h3>멍냥레코드 런칭</h3>
-        <p>스마트 OCR 기반 의료기록 서비스를 상용화하고, B2C 구독 요금제를 도입합니다.</p>
+        <p>멍냥레코드를 상용화하고, B2C 구독 모델을 도입합니다.</p>
       </article>
       <article class="phase" style="--pc:var(--mung)">
         <p class="p">Phase 3 · Scale up</p>
         <h3>B2B 제휴 생태계 확장</h3>
-        <p>동물병원 SaaS를 런칭하고, 데이터 기반 타겟팅 광고 시스템을 본격화합니다.</p>
+        <p>파트너와의 B2B 제휴로 생태계를 넓히고, 수익 모델을 다각화합니다.</p>
       </article>
       <article class="phase" style="--pc:var(--fg-3)">
         <p class="p">Phase 4 · 2027 ~</p>
@@ -1220,9 +1280,9 @@ h3,.h3{
       <div>
         <h4>Services</h4>
         <ul>
-          <li><a href="#echo">에코 · Echo</a></li>
-          <li><a href="#gleaum">글리움 · Gleaum</a></li>
-          <li><a href="#mungnyang">멍냥레코드 · MungNyang Records</a></li>
+          <li><a href="https://edwin-space.github.io/echo-space/" target="_blank" rel="noopener">에코 · Echo <span aria-hidden="true">↗</span></a></li>
+          <li><a href="https://www.gleaum.com" target="_blank" rel="noopener">글리움 · Gleaum <span aria-hidden="true">↗</span></a></li>
+          <li><a href="#mungnyang">멍냥레코드 · MungNyang Records <span class="faint">개발 중</span></a></li>
         </ul>
       </div>
 
