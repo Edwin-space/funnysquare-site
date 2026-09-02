@@ -37,7 +37,7 @@
   "description": "파편화된 일상을 의미 있는 데이터로 모으고, 그 데이터를 다시 새로운 즐거움으로 되돌려주는 기술 기업.",
   "makesOffer": [
     { "@type": "Offer", "itemOffered": { "@type": "SoftwareApplication", "name": "Echo", "applicationCategory": "HealthApplication", "operatingSystem": "iOS, watchOS" } },
-    { "@type": "Offer", "itemOffered": { "@type": "SoftwareApplication", "name": "Glium", "applicationCategory": "LifestyleApplication" } },
+    { "@type": "Offer", "itemOffered": { "@type": "SoftwareApplication", "name": "Gleaum", "applicationCategory": "LifestyleApplication" } },
     { "@type": "Offer", "itemOffered": { "@type": "SoftwareApplication", "name": "MungNyang Records", "applicationCategory": "HealthApplication" } }
   ]
 }
@@ -61,8 +61,8 @@
   --inv:#07080B;
 
   --echo:#2FD4F5;
-  --glium-a:#14DD8C;
-  --glium-b:#0E9BE6;
+  --gleaum-a:#14DD8C;
+  --gleaum-b:#0E9BE6;
   --mung:#FFA23E;
 
   --grid:rgba(255,255,255,.045);
@@ -89,8 +89,8 @@
   --inv:#FFFFFF;
 
   --echo:#0089B0;
-  --glium-a:#05A167;
-  --glium-b:#0B6FB4;
+  --gleaum-a:#05A167;
+  --gleaum-b:#0B6FB4;
   --mung:#B96A06;
 
   --grid:rgba(10,12,18,.05);
@@ -250,7 +250,7 @@ h3,.h3{
 .nav__progress{height:1.5px;background:transparent;position:relative;overflow:hidden}
 .nav__progress i{
   display:block;height:100%;width:0;
-  background:linear-gradient(90deg,var(--echo),var(--glium-a),var(--mung));
+  background:linear-gradient(90deg,var(--echo),var(--gleaum-a),var(--mung));
   transition:width .1s linear;
 }
 
@@ -310,7 +310,7 @@ h3,.h3{
   right:-16%;top:-34%;
   background:
     radial-gradient(circle at 34% 40%, color-mix(in srgb, var(--echo) 26%, transparent), transparent 58%),
-    radial-gradient(circle at 66% 58%, color-mix(in srgb, var(--glium-b) 22%, transparent), transparent 58%),
+    radial-gradient(circle at 66% 58%, color-mix(in srgb, var(--gleaum-b) 22%, transparent), transparent 58%),
     radial-gradient(circle at 52% 76%, color-mix(in srgb, var(--mung) 16%, transparent), transparent 56%);
   filter:blur(70px);
   opacity:.62;
@@ -335,7 +335,7 @@ h3,.h3{
 .hero h1{margin:26px 0 30px;max-width:16ch}
 .hero h1 em{
   font-style:normal;
-  background:linear-gradient(100deg, var(--echo), var(--glium-a) 46%, var(--mung));
+  background:linear-gradient(100deg, var(--echo), var(--gleaum-a) 46%, var(--mung));
   -webkit-background-clip:text;background-clip:text;color:transparent;
 }
 .hero .lede{max-width:50ch}
@@ -410,7 +410,7 @@ h3,.h3{
 }
 .quote::before{
   content:"";position:absolute;left:0;top:0;bottom:0;width:3px;
-  background:linear-gradient(180deg,var(--echo),var(--glium-a),var(--mung));
+  background:linear-gradient(180deg,var(--echo),var(--gleaum-a),var(--mung));
 }
 .quote p{
   font-size:clamp(1.2rem,2.5vw,1.85rem);line-height:1.5;letter-spacing:-.032em;
@@ -575,7 +575,7 @@ h3,.h3{
 .chip.is-future i{opacity:.22}
 .chip small{font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;color:var(--fg-3);text-transform:uppercase}
 
-/* ledger diagram (Glium) */
+/* ledger diagram (Gleaum) */
 .ledger{display:grid;gap:14px;align-items:stretch}
 @media (min-width:860px){ .ledger{grid-template-columns:1fr 62px 1fr;gap:0} }
 .ledger__box{
@@ -644,11 +644,11 @@ h3,.h3{
 @media (min-width:980px){ .road{grid-template-columns:repeat(4,1fr)} }
 .road::before{
   content:"";position:absolute;left:0;top:11px;width:1px;height:calc(100% - 22px);
-  background:linear-gradient(180deg,var(--echo),var(--glium-a),var(--mung),transparent);
+  background:linear-gradient(180deg,var(--echo),var(--gleaum-a),var(--mung),transparent);
 }
 @media (min-width:980px){
   .road::before{left:0;top:11px;width:100%;height:1px;
-    background:linear-gradient(90deg,var(--echo),var(--glium-a),var(--mung),transparent)}
+    background:linear-gradient(90deg,var(--echo),var(--gleaum-a),var(--mung),transparent)}
 }
 .phase{position:relative;padding:0 0 34px 30px}
 @media (min-width:980px){ .phase{padding:34px 26px 0 0} }
@@ -703,10 +703,10 @@ h3,.h3{
 
 /* accent scopes */
 #echo{--ac:var(--echo)}
-#glium{--ac:var(--glium-a)}
+#gleaum{--ac:var(--gleaum-a)}
 #mungnyang{--ac:var(--mung)}
 .ac-echo{--ac:var(--echo);color:var(--echo)}
-.ac-glium{--ac:var(--glium-a);color:var(--glium-a)}
+.ac-gleaum{--ac:var(--gleaum-a);color:var(--gleaum-a)}
 .ac-mung{--ac:var(--mung);color:var(--mung)}
 </style>
 </head>
@@ -726,7 +726,7 @@ h3,.h3{
       <a href="#philosophy">철학</a>
       <a href="#ecosystem">생태계</a>
       <a href="#echo">에코</a>
-      <a href="#glium">글리움</a>
+      <a href="#gleaum">글리움</a>
       <a href="#mungnyang">멍냥레코드</a>
       <a href="#roadmap">로드맵</a>
     </nav>
@@ -749,7 +749,7 @@ h3,.h3{
   <a href="#philosophy"><span>01</span>철학</a>
   <a href="#ecosystem"><span>02</span>생태계</a>
   <a href="#echo"><span>03</span>에코</a>
-  <a href="#glium"><span>04</span>글리움</a>
+  <a href="#gleaum"><span>04</span>글리움</a>
   <a href="#mungnyang"><span>05</span>멍냥레코드</a>
   <a href="#roadmap"><span>06</span>로드맵</a>
   <a href="#contact"><span>07</span>문의</a>
@@ -788,9 +788,9 @@ h3,.h3{
         </a>
       </li>
       <li>
-        <a href="#glium">
-          <span class="dot ac-glium" aria-hidden="true"></span>
-          <span class="nm">Glium</span><span class="ko">글리움 · 관계를 위한 기록</span>
+        <a href="#gleaum">
+          <span class="dot ac-gleaum" aria-hidden="true"></span>
+          <span class="nm">Gleaum</span><span class="ko">글리움 · 관계를 위한 기록</span>
           <span class="arr" aria-hidden="true">→</span>
         </a>
       </li>
@@ -838,11 +838,11 @@ h3,.h3{
         <p>달리고, 걷고, 오르는 모든 움직임은 누군가에게 보여주기 위한 것이 아니라 나에게 돌아오는 기록이어야 합니다.</p>
         <a class="value__link" href="#echo">Echo <span class="arr" aria-hidden="true">→</span></a>
       </article>
-      <article class="value rv ac-glium" style="--vc:var(--glium-a);transition-delay:.08s">
+      <article class="value rv ac-gleaum" style="--vc:var(--gleaum-a);transition-delay:.08s">
         <span class="value__no">02</span>
         <h3>소중한 사람들과의 시간</h3>
         <p>연인과 가족의 일정과 지출은 흩어져 있을 때보다 하나의 화면 위에 놓일 때 비로소 이야기가 됩니다.</p>
-        <a class="value__link" href="#glium">Glium <span class="arr" aria-hidden="true">→</span></a>
+        <a class="value__link" href="#gleaum">Gleaum <span class="arr" aria-hidden="true">→</span></a>
       </article>
       <article class="value rv ac-mung" style="--vc:var(--mung);transition-delay:.16s">
         <span class="value__no">03</span>
@@ -881,13 +881,13 @@ h3,.h3{
         </dl>
       </article>
 
-      <article class="card rv ac-glium" style="--ac:var(--glium-a);transition-delay:.08s">
+      <article class="card rv ac-gleaum" style="--ac:var(--gleaum-a);transition-delay:.08s">
         <div class="card__top">
           <span class="idx">02</span>
           <span class="tag"><span class="dot" aria-hidden="true"></span>Beta · 베타 운영 중</span>
         </div>
         <h3>글리움</h3>
-        <p class="en">Glium</p>
+        <p class="en">Gleaum</p>
         <dl class="spec">
           <div><dt>대상</dt><dd>관계 (Relation)</dd></div>
           <div><dt>데이터</dt><dd>일정 · 소비 · 자산 흐름</dd></div>
@@ -977,17 +977,17 @@ h3,.h3{
   </div>
 </section>
 
-<!-- ══════════════════ GLIUM ══════════════════ -->
-<section class="sec prod" id="glium" style="background:var(--bg-2)">
+<!-- ══════════════════ GLEAUM ══════════════════ -->
+<section class="sec prod" id="gleaum" style="background:var(--bg-2)">
   <div class="wrap">
     <div class="prod__head">
       <div>
         <p class="prod__no rv">02</p>
         <div class="prod__title rv">
-          <h2>Glium</h2>
+          <h2>Gleaum</h2>
           <span class="ko">글리움 · 관계를 위한 기록</span>
         </div>
-        <span class="tag ac-glium rv"><span class="dot" aria-hidden="true"></span>Beta · 베타 운영 중</span>
+        <span class="tag ac-gleaum rv"><span class="dot" aria-hidden="true"></span>Beta · 베타 운영 중</span>
       </div>
       <div>
         <p class="prod__en rv">Gleam + 글 + -ium · “Writing that shines”</p>
@@ -1024,7 +1024,7 @@ h3,.h3{
 
     <figure class="quote rv" style="margin-top:0;margin-bottom:clamp(34px,4.5vw,54px)">
       <p>우리의 시차를 없애는 가장 스마트한 방법, <strong>실시간 시간 공유</strong>.</p>
-      <cite>Glium Brand Essence</cite>
+      <cite>Gleaum Brand Essence</cite>
     </figure>
 
     <ul class="featrow rv" style="--cols:3">
@@ -1135,7 +1135,7 @@ h3,.h3{
         <h3 style="margin-bottom:10px">초고속 클라우드 동기화</h3>
         <p class="small">수많은 개인 건강 데이터와 금융 데이터를 무손실로, 실시간에 가깝게 동기화합니다.</p>
       </article>
-      <article class="card" style="--ac:var(--glium-a)">
+      <article class="card" style="--ac:var(--gleaum-a)">
         <span class="value__no mono" style="display:block;margin-bottom:14px">02</span>
         <h3 style="margin-bottom:10px">빅데이터 &amp; OCR 엔진</h3>
         <p class="small">텍스트와 이미지 데이터를 구조화된 DB로 자동 변환하는 지능형 스캐닝 파이프라인입니다.</p>
@@ -1168,7 +1168,7 @@ h3,.h3{
         <h3>Active 포트폴리오 고도화</h3>
         <p>에코와 글리움의 유저 베이스 락인(Lock-in)과 서비스 안정화에 집중합니다.</p>
       </article>
-      <article class="phase" style="--pc:var(--glium-a)">
+      <article class="phase" style="--pc:var(--gleaum-a)">
         <p class="p">Phase 2 · Next step</p>
         <h3>멍냥레코드 런칭</h3>
         <p>스마트 OCR 기반 의료기록 서비스를 상용화하고, B2C 구독 요금제를 도입합니다.</p>
@@ -1221,7 +1221,7 @@ h3,.h3{
         <h4>Services</h4>
         <ul>
           <li><a href="#echo">에코 · Echo</a></li>
-          <li><a href="#glium">글리움 · Glium</a></li>
+          <li><a href="#gleaum">글리움 · Gleaum</a></li>
           <li><a href="#mungnyang">멍냥레코드 · MungNyang Records</a></li>
         </ul>
       </div>
