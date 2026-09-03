@@ -9,11 +9,16 @@
 
 | 경로 | 설명 |
 |---|---|
-| `index.html` | 사이트 전체 (마크업 · 스타일 · 스크립트가 한 파일에 들어 있습니다) |
-| `assets/logo-mark.svg` | 심볼 (아이소메트릭 큐브). `currentColor`를 따르므로 어떤 배경에도 얹을 수 있습니다 |
-| `assets/logo-wordmark.svg` | 워드마크 `Funny Square` |
+| `index.html` | 홈 (철학 · 생태계 · 세 서비스 · 기술 기반 · 로드맵) |
+| `contact/index.html` | 문의 페이지 |
+| `assets/styles.css` | 디자인 시스템. 두 페이지가 공유합니다 |
+| `assets/site.js` | 메뉴 · 스크롤 · 리빌 · 카운트업 · 문의 폼 동작 |
+| `assets/logo-mark-white.svg` | 화면에서 쓰는 심볼 (흰색 고정) |
+| `assets/logo-wordmark-white.svg` | 화면에서 쓰는 워드마크 (흰색 고정) |
+| `assets/logo-mark.svg` | 심볼 원본. `currentColor`를 따르므로 다른 배경에 재활용할 수 있습니다 |
+| `assets/logo-wordmark.svg` | 워드마크 원본 |
 | `assets/logo-lockup.svg` | 심볼 + 워드마크 세로 조합형 |
-| `assets/favicon.svg` | 파비콘 (라이트/다크 자동 반전) |
+| `assets/favicon.svg` | 파비콘 |
 | `assets/logo.png` / `logo-inverse.png` | 원본 래스터 로고. OG 이미지로도 사용합니다 |
 | `robots.txt`, `sitemap.xml` | 검색엔진용 |
 | `.nojekyll` | GitHub Pages의 Jekyll 처리를 끕니다 |
@@ -51,7 +56,8 @@
 ## 기술 메모
 
 - 의존성 없는 순수 HTML/CSS/JS. 번들러도, 프레임워크도 쓰지 않습니다.
-- 다크 모드가 기본이며, 우측 상단 버튼으로 라이트 모드 전환이 가능합니다. 선택은 `localStorage`에 남고, 선택이 없으면 OS 설정을 따릅니다.
+- **다크 전용입니다.** 라이트 모드와 테마 토글은 운영하지 않으며, OS가 라이트 모드여도 항상 다크로 표시됩니다.
+- 스타일과 스크립트는 `assets/`로 분리해 두 페이지가 공유합니다. 한쪽만 고쳐도 양쪽에 반영됩니다.
 - 스크롤 리빌 · 섹션 하이라이트 · 숫자 카운트업은 `IntersectionObserver`를 씁니다. 미지원 브라우저에서는 즉시 최종 상태로 표시됩니다.
 - `prefers-reduced-motion`을 존중해 모든 애니메이션을 끕니다.
 - 폰트는 Pretendard Variable(jsDelivr) + JetBrains Mono(Google Fonts)를 CDN에서 불러옵니다.
@@ -108,7 +114,7 @@ git push origin main
    - 액세스 권한이 있는 사용자: **모든 사용자**
 6. 배포하면 권한 승인 창이 뜹니다. 승인 후 발급되는
    `https://script.google.com/macros/s/.../exec` 주소를 복사합니다.
-7. `index.html`의 폼 태그 `data-endpoint`에 그 주소를 붙여넣고 커밋·push 합니다.
+7. `contact/index.html`의 폼 태그 `data-endpoint`에 그 주소를 붙여넣고 커밋·push 합니다.
 
 ```html
 <form class="form" id="contactForm" novalidate data-endpoint="https://script.google.com/macros/s/.../exec">
