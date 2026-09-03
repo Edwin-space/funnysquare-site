@@ -81,57 +81,64 @@ git push origin main
 ## 문의 폼 연결
 
 문의 섹션은 메일 링크가 아니라 입력 폼입니다. GitHub Pages에는 서버가 없으므로,
-제출된 내용을 받아 저장할 외부 엔드포인트를 하나 연결해야 합니다.
+제출된 내용은 **Google Apps Script 웹 앱**이 받아 스프레드시트에 기록합니다.
 
-`index.html`의 폼 태그에서 `data-endpoint` 한 곳만 채우면 됩니다.
+수신 스크립트는 [`tools/apps-script/contact-form.gs`](tools/apps-script/contact-form.gs)에 있습니다.
+
+### 설치 절차
+
+1. 구글 스프레드시트를 새로 만듭니다. (문의가 쌓일 곳)
+2. **확장 프로그램 → Apps Script**를 엽니다.
+3. 기본으로 열려 있는 `Code.gs` 내용을 지우고, `tools/apps-script/contact-form.gs`
+   전체를 붙여넣은 뒤 저장합니다.
+4. 새 문의 알림 메일을 받으려면 파일 상단 `NOTIFY_EMAIL`에 받을 주소를 적습니다.
+   (비워두면 시트에만 기록합니다)
+5. 우측 상단 **배포 → 새 배포 → 유형: 웹 앱**을 선택하고 다음처럼 지정합니다.
+   - 실행 사용자: **나**
+   - 액세스 권한이 있는 사용자: **모든 사용자**
+6. 배포하면 권한 승인 창이 뜹니다. 승인 후 발급되는
+   `https://script.google.com/macros/s/.../exec` 주소를 복사합니다.
+7. `index.html`의 폼 태그 `data-endpoint`에 그 주소를 붙여넣고 커밋·push 합니다.
 
 ```html
-<form class="form" id="contactForm" novalidate data-endpoint="">
+<form class="form" id="contactForm" novalidate data-endpoint="https://script.google.com/macros/s/.../exec">
 ```
 
-**엔드포인트가 비어 있으면** 제출 시 메일 앱이 내용이 채워진 상태로 열립니다.
-문의가 유실되지는 않지만, 자동 저장은 되지 않습니다.
+배포가 살아 있는지는 `/exec` 주소를 브라우저에서 열어 확인할 수 있습니다.
+`{"ok":true,"service":"funnysquare-contact"}`가 보이면 정상입니다.
 
-### 연결 방법 A — Formspree (가장 간단)
+> 스크립트를 고친 뒤에는 **배포 → 배포 관리 → 버전: 새 버전**으로 다시 배포해야
+> 반영됩니다. 같은 배포를 수정하면 `/exec` 주소는 그대로 유지됩니다.
 
-1. [formspree.io](https://formspree.io) 가입 후 새 폼을 만듭니다.
-2. 발급된 주소(`https://formspree.io/f/xxxxxxxx`)를 `data-endpoint`에 넣습니다.
-3. 끝입니다. 제출 내역이 대시보드에 쌓이고, 이메일 알림도 옵니다. CSV로 내려받을 수 있습니다.
+### 시트에 기록되는 항목
 
-무료 요금제는 월 50건까지 받습니다.
+| 접수 시각 | 이름 | 이메일 | 회사·소속 | 문의 유형 | 내용 | 유입 페이지 | 처리 상태 |
+|---|---|---|---|---|---|---|---|
 
-### 연결 방법 B — Google Apps Script + 스프레드시트 (무료, 건수 제한 없음)
+머리글과 서식은 첫 문의가 들어올 때 자동으로 만들어집니다.
+`처리 상태`는 `미처리`로 기록되니, 응대하며 직접 바꿔 쓰시면 됩니다.
 
-1. 구글 스프레드시트를 만들고 **확장 프로그램 → Apps Script**를 엽니다.
-2. 아래 코드를 붙여넣습니다.
-
-   ```javascript
-   function doPost(e) {
-     const d = JSON.parse(e.postData.contents);
-     SpreadsheetApp.getActiveSheet().appendRow([
-       new Date(), d.name, d.email, d.organization, d.type, d.message, d.page
-     ]);
-     return ContentService.createTextOutput(JSON.stringify({ ok: true }))
-       .setMimeType(ContentService.MimeType.JSON);
-   }
-   ```
-
-3. **배포 → 새 배포 → 웹 앱**, 액세스 권한을 `모든 사용자`로 지정하고 배포합니다.
-4. 발급된 `/exec` 주소를 `data-endpoint`에 넣습니다.
-
-### 폼이 보내는 데이터
+### 전송 규격
 
 ```json
 {
   "name": "...", "email": "...", "organization": "...",
   "type": "제휴 | 투자 | 채용 | 서비스 이용 | 기타",
-  "message": "...", "consent": true,
+  "message": "...", "consent": true, "website": "",
   "submittedAt": "ISO 8601", "page": "제출된 페이지 주소"
 }
 ```
 
-`Content-Type: application/json`으로 POST합니다. 봇 차단용 허니팟 필드(`website`)가
-채워져 오면 전송하지 않고 조용히 종료합니다.
+`Content-Type`은 `application/json`이 아니라 **`text/plain;charset=utf-8`** 입니다.
+`application/json`은 CORS preflight(OPTIONS)를 유발하는데 Apps Script 웹 앱은
+OPTIONS를 처리하지 못해 요청이 차단됩니다. `text/plain`은 preflight 없이 통과하고,
+서버에서는 `JSON.parse(e.postData.contents)`로 그대로 읽습니다. **이 헤더는 바꾸지 마세요.**
+
+`website`는 봇 차단용 허니팟입니다. 채워져 오면 프론트·서버 양쪽에서 무시합니다.
+이름·이메일 형식·동의 여부는 서버에서도 다시 검증하므로, 폼을 우회한 요청은 기록되지 않습니다.
+
+**엔드포인트가 비어 있는 동안**에는 제출 시 내용이 채워진 메일 앱이 열립니다.
+문의가 유실되지는 않지만 자동 저장은 되지 않습니다.
 
 ## 남은 작업
 
