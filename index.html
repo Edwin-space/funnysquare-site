@@ -729,6 +729,102 @@ h3,.h3{
 .cta-band .lede{margin-inline:auto;text-align:center}
 .cta-band .btns{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:34px}
 
+/* 문의 폼 */
+.contact{
+  position:relative;overflow:hidden;
+  border:1px solid var(--line);border-radius:clamp(24px,3vw,34px);
+  background:var(--bg-2);
+  padding:clamp(32px,5vw,64px) clamp(24px,4.5vw,58px);
+  display:grid;gap:clamp(32px,4.5vw,56px);
+}
+@media (min-width:940px){ .contact{grid-template-columns:.9fr 1.1fr;gap:clamp(40px,5vw,72px)} }
+.contact::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(70% 120% at 12% 0%, color-mix(in srgb,var(--echo) 18%,transparent), transparent 60%),
+    radial-gradient(70% 120% at 88% 100%, color-mix(in srgb,var(--mung) 15%,transparent), transparent 60%);
+}
+.contact > *{position:relative}
+.contact__intro h2{margin-bottom:20px}
+.contact__intro .lede{margin-bottom:26px}
+.contact__ways{display:grid;gap:12px;border-top:1px solid var(--line);padding-top:22px}
+.contact__ways li{display:flex;gap:12px;align-items:flex-start;font-size:.885rem;color:var(--fg-2);line-height:1.6}
+.contact__ways b{color:var(--fg);font-weight:650;flex:none;min-width:52px;font-size:.87rem}
+
+.form{display:grid;gap:18px}
+.form__row{display:grid;gap:18px}
+@media (min-width:560px){ .form__row{grid-template-columns:1fr 1fr} }
+.field{display:grid;gap:8px}
+.field label{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--fg-3);display:flex;align-items:center;gap:7px;
+}
+.field label .req{color:var(--echo)}
+.field input,.field select,.field textarea{
+  width:100%;font:inherit;font-size:.94rem;color:var(--fg);
+  background:var(--bg-3);border:1px solid var(--line);border-radius:12px;
+  padding:13px 15px;transition:border-color .2s,background .2s,box-shadow .2s;
+  -webkit-appearance:none;appearance:none;
+}
+.field textarea{min-height:132px;resize:vertical;line-height:1.65}
+.field select{
+  background-image:linear-gradient(45deg,transparent 50%,currentColor 50%),linear-gradient(135deg,currentColor 50%,transparent 50%);
+  background-position:calc(100% - 20px) calc(50% + 2px),calc(100% - 15px) calc(50% + 2px);
+  background-size:5px 5px,5px 5px;background-repeat:no-repeat;
+  color:var(--fg);padding-right:42px;cursor:pointer;
+}
+.field input::placeholder,.field textarea::placeholder{color:var(--fg-3)}
+.field input:focus,.field select:focus,.field textarea:focus{
+  outline:none;border-color:var(--echo);background:var(--bg-3);
+  box-shadow:0 0 0 3px color-mix(in srgb,var(--echo) 18%,transparent);
+}
+.field.is-invalid input,.field.is-invalid select,.field.is-invalid textarea{
+  border-color:var(--warn, #FF6B58);
+}
+.field .err{font-size:.8rem;color:#FF6B58;display:none}
+[data-theme="light"] .field .err{color:#C2321F}
+.field.is-invalid .err{display:block}
+
+.consent{display:flex;gap:12px;align-items:flex-start;cursor:pointer;
+  border:1px solid var(--line);border-radius:12px;padding:15px 16px;background:var(--bg-3);
+  transition:border-color .2s}
+.consent:hover{border-color:var(--line-2)}
+.consent.is-invalid{border-color:#FF6B58}
+.consent input{
+  flex:none;width:18px;height:18px;margin:1px 0 0;accent-color:var(--echo);cursor:pointer;
+}
+.consent span{font-size:.845rem;line-height:1.6;color:var(--fg-2)}
+.consent a{color:var(--fg);text-decoration:underline;text-underline-offset:3px}
+
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+
+.form__submit{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-top:4px}
+.form__submit .btn[disabled]{opacity:.55;pointer-events:none}
+.form__status{font-size:.875rem;line-height:1.6;display:none}
+.form__status.is-on{display:block}
+.form__status.ok{color:var(--glium-1, #14DD8C)}
+.form__status.bad{color:#FF6B58}
+[data-theme="light"] .form__status.bad{color:#C2321F}
+.spinner{width:15px;height:15px;border-radius:50%;border:2px solid currentColor;
+  border-top-color:transparent;animation:spin .7s linear infinite;display:none}
+.is-sending .spinner{display:block}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.spinner{animation-duration:2s}}
+
+.form__done{
+  display:none;text-align:center;padding:clamp(30px,5vw,56px) 20px;
+  border:1px solid color-mix(in srgb,var(--glium-1,#14DD8C) 40%,var(--line));
+  border-radius:var(--r-lg);background:var(--bg-3);
+}
+.form__done.is-on{display:block}
+.form__done .tick{
+  width:46px;height:46px;border-radius:50%;margin:0 auto 18px;display:grid;place-items:center;
+  border:1px solid color-mix(in srgb,var(--glium-1,#14DD8C) 50%,transparent);
+  color:var(--glium-1,#14DD8C);background:color-mix(in srgb,var(--glium-1,#14DD8C) 10%,transparent);
+}
+.form__done h3{margin-bottom:10px}
+.form__done p{color:var(--fg-2);font-size:.9rem;line-height:1.7}
+
 .foot{border-top:1px solid var(--line);padding-block:clamp(46px,6vw,72px) 34px;background:var(--bg-2)}
 .foot__top{display:grid;gap:36px;margin-bottom:44px}
 @media (min-width:860px){ .foot__top{grid-template-columns:1.4fr 1fr 1fr;gap:48px} }
@@ -1248,17 +1344,90 @@ h3,.h3{
 </section>
 
 <!-- ══════════════════ CONTACT ══════════════════ -->
-<section class="sec sec--tight" id="contact">
+<section class="sec" id="contact">
   <div class="wrap">
-    <div class="cta-band rv">
-      <p class="eyebrow eyebrow--plain" style="justify-content:center;margin-bottom:20px">Let’s build the ecosystem</p>
-      <h2>일상을 다시 즐겁게 만드는 일,<br>함께 하시겠어요?</h2>
-      <p class="lede">제휴 · 투자 · 채용에 대한 문의를 기다립니다.</p>
-      <div class="btns">
-        <!-- TODO: 실제 대표 메일 주소로 교체하세요 -->
-        <a class="btn btn--solid" href="mailto:contact@funny-square.com">문의 메일 보내기 <span class="arr" aria-hidden="true">→</span></a>
-        <a class="btn btn--ghost" href="https://funny-square.com" rel="noopener">funny-square.com</a>
+    <div class="contact rv">
+
+      <div class="contact__intro">
+        <p class="eyebrow" style="margin-bottom:20px">Let’s build the ecosystem</p>
+        <h2>일상을 다시 즐겁게 만드는 일,<br>함께 하시겠어요?</h2>
+        <p class="lede">제휴 · 투자 · 채용에 대한 문의를 기다립니다. 남겨주시면 확인 후 회신드리겠습니다.</p>
+        <ul class="contact__ways">
+          <li><b>제휴</b><span>서비스 연동, 공동 마케팅, 데이터 협업</span></li>
+          <li><b>투자</b><span>IR 자료 요청 및 미팅 일정 조율</span></li>
+          <li><b>채용</b><span>합류하고 싶은 포지션과 함께 남겨주세요</span></li>
+        </ul>
       </div>
+
+      <div>
+        <form class="form" id="contactForm" novalidate data-endpoint="">
+          <div class="form__row">
+            <div class="field" data-field>
+              <label for="cf-name">이름 <span class="req" aria-hidden="true">*</span></label>
+              <input type="text" id="cf-name" name="name" autocomplete="name" required maxlength="60" placeholder="홍길동">
+              <p class="err">이름을 입력해 주세요.</p>
+            </div>
+            <div class="field" data-field>
+              <label for="cf-email">이메일 <span class="req" aria-hidden="true">*</span></label>
+              <input type="email" id="cf-email" name="email" autocomplete="email" required maxlength="120" placeholder="name@example.com">
+              <p class="err">올바른 이메일 주소를 입력해 주세요.</p>
+            </div>
+          </div>
+
+          <div class="form__row">
+            <div class="field" data-field>
+              <label for="cf-org">회사 · 소속</label>
+              <input type="text" id="cf-org" name="organization" autocomplete="organization" maxlength="80" placeholder="선택 입력">
+            </div>
+            <div class="field" data-field>
+              <label for="cf-type">문의 유형 <span class="req" aria-hidden="true">*</span></label>
+              <select id="cf-type" name="type" required>
+                <option value="">선택해 주세요</option>
+                <option value="제휴">제휴</option>
+                <option value="투자">투자</option>
+                <option value="채용">채용</option>
+                <option value="서비스 이용">서비스 이용</option>
+                <option value="기타">기타</option>
+              </select>
+              <p class="err">문의 유형을 선택해 주세요.</p>
+            </div>
+          </div>
+
+          <div class="field" data-field>
+            <label for="cf-message">문의 내용 <span class="req" aria-hidden="true">*</span></label>
+            <textarea id="cf-message" name="message" required minlength="10" maxlength="2000" placeholder="어떤 이야기든 편하게 남겨주세요."></textarea>
+            <p class="err">10자 이상 입력해 주세요.</p>
+          </div>
+
+          <label class="consent" id="cf-consent-wrap">
+            <input type="checkbox" id="cf-consent" name="consent" required>
+            <span>문의 응대를 위해 이름과 이메일 주소가 수집되는 것에 동의합니다. 수집된 정보는 문의 처리 목적으로만 이용하며, 처리 완료 후 파기합니다.</span>
+          </label>
+
+          <div class="hp" aria-hidden="true">
+            <label for="cf-website">이 항목은 비워두세요</label>
+            <input type="text" id="cf-website" name="website" tabindex="-1" autocomplete="off">
+          </div>
+
+          <div class="form__submit">
+            <button class="btn btn--solid" type="submit" id="cf-submit">
+              <span class="spinner" aria-hidden="true"></span>
+              <span class="label">문의 보내기</span>
+              <span class="arr" aria-hidden="true">→</span>
+            </button>
+            <p class="form__status" id="cf-status" role="status" aria-live="polite"></p>
+          </div>
+        </form>
+
+        <div class="form__done" id="cf-done" role="status" aria-live="polite">
+          <div class="tick" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>
+          </div>
+          <h3>문의가 접수되었습니다</h3>
+          <p>남겨주신 내용을 확인한 뒤 이메일로 회신드리겠습니다.<br>보통 영업일 기준 2~3일이 걸립니다.</p>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -1418,6 +1587,126 @@ h3,.h3{
     Array.prototype.forEach.call(nums, function (el) { ns.observe(el); });
   } else {
     Array.prototype.forEach.call(nums, function (el) { el.textContent = format(parseFloat(el.dataset.to), el.dataset.fmt); });
+  }
+
+  /* ---------- 문의 폼 ---------- */
+  var form = document.getElementById("contactForm");
+  if (form) {
+    var statusEl = document.getElementById("cf-status");
+    var submitBtn = document.getElementById("cf-submit");
+    var doneEl = document.getElementById("cf-done");
+    var consentWrap = document.getElementById("cf-consent-wrap");
+    var FALLBACK_MAIL = form.getAttribute("data-fallback-mail") || "contact@funny-square.com";
+
+    function setStatus(msg, kind) {
+      statusEl.textContent = msg || "";
+      statusEl.className = "form__status" + (msg ? " is-on " + (kind || "") : "");
+    }
+    function fieldOf(el) { return el.closest("[data-field]"); }
+    function mark(el, invalid) {
+      var f = fieldOf(el) || (el.id === "cf-consent" ? consentWrap : null);
+      if (f) f.classList.toggle("is-invalid", !!invalid);
+    }
+    function validEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v); }
+
+    function validate() {
+      var bad = [];
+      var name = form.name_ = document.getElementById("cf-name");
+      var email = document.getElementById("cf-email");
+      var type = document.getElementById("cf-type");
+      var msg = document.getElementById("cf-message");
+      var consent = document.getElementById("cf-consent");
+
+      var checks = [
+        [name, name.value.trim().length > 0],
+        [email, validEmail(email.value.trim())],
+        [type, type.value !== ""],
+        [msg, msg.value.trim().length >= 10],
+        [consent, consent.checked]
+      ];
+      checks.forEach(function (c) {
+        mark(c[0], !c[1]);
+        if (!c[1]) bad.push(c[0]);
+      });
+      return bad;
+    }
+
+    form.addEventListener("input", function (e) {
+      if (e.target.matches("input,select,textarea")) mark(e.target, false);
+    });
+    form.addEventListener("change", function (e) {
+      if (e.target.id === "cf-consent") mark(e.target, false);
+    });
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      /* 허니팟: 봇이 채우면 조용히 종료 */
+      if (document.getElementById("cf-website").value) {
+        form.style.display = "none";
+        doneEl.classList.add("is-on");
+        return;
+      }
+
+      var bad = validate();
+      if (bad.length) {
+        setStatus("입력하지 않은 항목이 있습니다.", "bad");
+        bad[0].focus();
+        return;
+      }
+
+      var data = {
+        name: document.getElementById("cf-name").value.trim(),
+        email: document.getElementById("cf-email").value.trim(),
+        organization: document.getElementById("cf-org").value.trim(),
+        type: document.getElementById("cf-type").value,
+        message: document.getElementById("cf-message").value.trim(),
+        consent: true,
+        submittedAt: new Date().toISOString(),
+        page: location.href
+      };
+
+      var endpoint = (form.getAttribute("data-endpoint") || "").trim();
+
+      /* 엔드포인트 미설정: 메일 클라이언트로 폴백해 문의가 유실되지 않게 한다 */
+      if (!endpoint) {
+        var body = [
+          "이름: " + data.name,
+          "이메일: " + data.email,
+          "회사 · 소속: " + (data.organization || "-"),
+          "문의 유형: " + data.type,
+          "",
+          data.message
+        ].join("\n");
+        location.href = "mailto:" + FALLBACK_MAIL +
+          "?subject=" + encodeURIComponent("[문의] " + data.type + " — " + data.name) +
+          "&body=" + encodeURIComponent(body);
+        setStatus("메일 앱이 열립니다. 열리지 않으면 " + FALLBACK_MAIL + " 으로 보내주세요.", "ok");
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.classList.add("is-sending");
+      submitBtn.querySelector(".label").textContent = "보내는 중";
+      setStatus("문의를 전송하고 있습니다…", "");
+
+      fetch(endpoint, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body: JSON.stringify(data)
+      }).then(function (res) {
+        if (!res.ok) throw new Error("HTTP " + res.status);
+        form.style.display = "none";
+        doneEl.classList.add("is-on");
+        doneEl.scrollIntoView({ block: "center", behavior: "smooth" });
+      }).catch(function () {
+        setStatus("전송에 실패했습니다. 잠시 후 다시 시도하시거나 " + FALLBACK_MAIL + " 으로 보내주세요.", "bad");
+      }).then(function () {
+        submitBtn.disabled = false;
+        submitBtn.classList.remove("is-sending");
+        submitBtn.querySelector(".label").textContent = "문의 보내기";
+      });
+    });
   }
 
   /* ---------- year ---------- */

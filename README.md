@@ -78,9 +78,65 @@ git push origin main
 
 > `CNAME` 파일을 지우면 커스텀 도메인 연결이 끊깁니다. force push나 파일 정리 시 주의하세요.
 
+## 문의 폼 연결
+
+문의 섹션은 메일 링크가 아니라 입력 폼입니다. GitHub Pages에는 서버가 없으므로,
+제출된 내용을 받아 저장할 외부 엔드포인트를 하나 연결해야 합니다.
+
+`index.html`의 폼 태그에서 `data-endpoint` 한 곳만 채우면 됩니다.
+
+```html
+<form class="form" id="contactForm" novalidate data-endpoint="">
+```
+
+**엔드포인트가 비어 있으면** 제출 시 메일 앱이 내용이 채워진 상태로 열립니다.
+문의가 유실되지는 않지만, 자동 저장은 되지 않습니다.
+
+### 연결 방법 A — Formspree (가장 간단)
+
+1. [formspree.io](https://formspree.io) 가입 후 새 폼을 만듭니다.
+2. 발급된 주소(`https://formspree.io/f/xxxxxxxx`)를 `data-endpoint`에 넣습니다.
+3. 끝입니다. 제출 내역이 대시보드에 쌓이고, 이메일 알림도 옵니다. CSV로 내려받을 수 있습니다.
+
+무료 요금제는 월 50건까지 받습니다.
+
+### 연결 방법 B — Google Apps Script + 스프레드시트 (무료, 건수 제한 없음)
+
+1. 구글 스프레드시트를 만들고 **확장 프로그램 → Apps Script**를 엽니다.
+2. 아래 코드를 붙여넣습니다.
+
+   ```javascript
+   function doPost(e) {
+     const d = JSON.parse(e.postData.contents);
+     SpreadsheetApp.getActiveSheet().appendRow([
+       new Date(), d.name, d.email, d.organization, d.type, d.message, d.page
+     ]);
+     return ContentService.createTextOutput(JSON.stringify({ ok: true }))
+       .setMimeType(ContentService.MimeType.JSON);
+   }
+   ```
+
+3. **배포 → 새 배포 → 웹 앱**, 액세스 권한을 `모든 사용자`로 지정하고 배포합니다.
+4. 발급된 `/exec` 주소를 `data-endpoint`에 넣습니다.
+
+### 폼이 보내는 데이터
+
+```json
+{
+  "name": "...", "email": "...", "organization": "...",
+  "type": "제휴 | 투자 | 채용 | 서비스 이용 | 기타",
+  "message": "...", "consent": true,
+  "submittedAt": "ISO 8601", "page": "제출된 페이지 주소"
+}
+```
+
+`Content-Type: application/json`으로 POST합니다. 봇 차단용 허니팟 필드(`website`)가
+채워져 오면 전송하지 않고 조용히 종료합니다.
+
 ## 남은 작업
 
-- [ ] `index.html`의 문의 메일 주소 — 현재 `contact@funny-square.com` 자리표시자입니다. 실제 주소로 교체하세요. (`TODO` 주석으로 표시해 두었습니다)
+- [ ] 문의 폼의 `data-endpoint`를 연결하세요 (위 "문의 폼 연결" 참고). 연결 전까지는 메일 앱 폴백으로 동작합니다
+- [ ] 폴백 메일 주소가 `contact@funny-square.com` 자리표시자입니다. 실제 주소로 교체하세요
 - [ ] 푸터의 법인 정보 — 필요하다면 사업자등록번호 · 주소 · 대표자명을 추가하세요.
 - [ ] 멍냥레코드 출시 시 해당 섹션을 확장하고, 스토어 링크를 추가하세요.
 
