@@ -104,6 +104,9 @@ git push origin main
 <form class="form" id="contactForm" novalidate data-endpoint="https://script.google.com/macros/s/.../exec">
 ```
 
+**현재 상태: 연결 완료.** 배포된 웹 앱이 `data-endpoint`에 지정되어 있고,
+정상 접수 · 허니팟 차단 · 동의 누락 · 이메일 형식 오류 경로를 실제 엔드포인트로 확인했습니다.
+
 배포가 살아 있는지는 `/exec` 주소를 브라우저에서 열어 확인할 수 있습니다.
 `{"ok":true,"service":"funnysquare-contact"}`가 보이면 정상입니다.
 
@@ -142,8 +145,10 @@ OPTIONS를 처리하지 못해 요청이 차단됩니다. `text/plain`은 prefli
 
 ## 남은 작업
 
-- [ ] 문의 폼의 `data-endpoint`를 연결하세요 (위 "문의 폼 연결" 참고). 연결 전까지는 메일 앱 폴백으로 동작합니다
-- [ ] 폴백 메일 주소가 `contact@funny-square.com` 자리표시자입니다. 실제 주소로 교체하세요
+- [x] ~~문의 폼 `data-endpoint` 연결~~ — 완료
+- [ ] Apps Script의 `NOTIFY_EMAIL`을 채우면 새 문의가 올 때 알림 메일을 받을 수 있습니다
+- [ ] 연결 확인용으로 넣은 테스트 문의 몇 건이 시트에 있습니다. 확인 후 삭제하세요
+- [ ] 전송 실패 시 안내에 쓰이는 폴백 메일 주소가 `contact@funny-square.com` 자리표시자입니다. 실제 주소로 교체하세요
 - [ ] 푸터의 법인 정보 — 필요하다면 사업자등록번호 · 주소 · 대표자명을 추가하세요.
 - [ ] 멍냥레코드 출시 시 해당 섹션을 확장하고, 스토어 링크를 추가하세요.
 
