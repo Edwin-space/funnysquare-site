@@ -760,3 +760,10 @@ h3,.h3{
 .ac-echo{--ac:var(--echo);color:var(--echo)}
 .ac-gleaum{--ac:var(--gleaum-a);color:var(--gleaum-a)}
 .ac-mung{--ac:var(--mung);color:var(--mung)}
+
+/* FAQ */
+.faq{display:grid;gap:14px}
+@media (min-width:860px){.faq{grid-template-columns:repeat(2,1fr)}}
+.faq__item{padding:24px 26px}
+.faq__item h3{font-size:1.02rem;font-weight:700;letter-spacing:-.022em;margin-bottom:10px}
+.faq__item p{font-size:.9rem;line-height:1.72;color:var(--fg-2);font-weight:380}

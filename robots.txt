@@ -1,4 +1,70 @@
+# https://funny-square.com/robots.txt
+# 주식회사 퍼니스퀘어
+
 User-agent: *
+Allow: /
+
+# ── 글로벌 검색엔진 ──
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# ── 한국 검색엔진 ──
+# 네이버
+User-agent: Yeti
+Allow: /
+
+# 다음
+User-agent: Daumoa
+Allow: /
+
+# ── AI 검색 · 답변 엔진 ──
+# 사이트 내용이 AI 답변에 인용되는 것을 허용합니다.
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: CCBot
 Allow: /
 
 Sitemap: https://funny-square.com/sitemap.xml
